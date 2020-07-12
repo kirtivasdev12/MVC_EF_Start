@@ -70,6 +70,9 @@ namespace MVC_EF_Start.Controllers
       dbContext.Quotes.Add(MyCompanyQuote1);
       dbContext.Quotes.Add(MyCompanyQuote2);
 
+
+           // dbContext.Students.Add
+
       dbContext.SaveChanges();
       
       // READ operation
@@ -87,10 +90,23 @@ namespace MVC_EF_Start.Controllers
       dbContext.Companies.Update(CompanyRead1);
       //dbContext.SaveChanges();
       await dbContext.SaveChangesAsync();
-      
-      // DELETE operation
-      //dbContext.Companies.Remove(CompanyRead1);
-      //await dbContext.SaveChangesAsync();
+
+            // DELETE operation
+            //dbContext.Companies.Remove(CompanyRead1);
+            //await dbContext.SaveChangesAsync();
+
+            Student S = new Student();
+            S.Name = "John";
+
+            Course C = new Course();
+            C.Name = "DIS";
+
+            Enrolment E = new Enrolment();
+            E.student = S;
+            E.course = C;
+
+            dbContext.Enrolments.Add(E);
+            dbContext.SaveChanges();
 
       return View();
     }
