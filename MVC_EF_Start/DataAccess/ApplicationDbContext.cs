@@ -15,7 +15,9 @@ namespace MVC_EF_Start.DataAccess
 
         public DbSet<Enrolment> Enrolments { get; set; }
 
-
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<Item> Items { get; set; }
+        public DbSet<Order> Orders { get; set; }
 
     }
 }
